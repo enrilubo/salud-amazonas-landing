@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salud Amazonas — Telemedicina Plug & Play para las postas rurales</title>
+    <meta name="description" content="Plataforma de telemedicina offline-first para las 4 RIS de Amazonas. Equipos médicos Bluetooth plug-and-play, IA clínica 24/7 y sincronización automática. Sin internet, sin configuración.">
+    <meta name="theme-color" content="#047857">
+
+    <!-- Open Graph (compartir en WhatsApp) -->
+    <meta property="og:title" content="Salud Amazonas — Telemedicina Plug & Play">
+    <meta property="og:description" content="La posta más lejana de Amazonas, con médico presente. Equipos Bluetooth, IA clínica y modo offline.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_PE">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* ============================================
+           SALUD AMAZONAS — Landing comercial
+           Paleta cálida: crema + esmeralda + miel
+           ============================================ */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --green: #047857;
+            --green-dark: #065f46;
+            --green-light: #10b981;
+            --green-50: #ecfdf5;
+            --green-100: #d1fae5;
+            --amber: #d97706;
+            --amber-dark: #b45309;
+            --amber-light: #fbbf24;
+            --terracota: #c2410c;
+            --rio: #0369a1;
+            --rio-light: #0ea5e9;
+            --cream: #fffdf5;
+            --cream-2: #fef9e7;
+            --slate-900: #0f172a;
+            --slate-800: #1e293b;
+            --slate-700: #334155;
+            --slate-600: #475569;
+            --slate-500: #64748b;
+            --slate-400: #94a3b8;
+            --slate-300: #cbd5e1;
+            --slate-200: #e2e8f0;
+            --slate-100: #f1f5f9;
+            --slate-50: #f8fafc;
+            --white: #fff;
+            --shadow-sm: 0 1px 3px rgba(15,23,42,.08);
+            --shadow-md: 0 4px 16px rgba(15,23,42,.10);
+            --shadow-lg: 0 12px 40px rgba(15,23,42,.14);
+            --shadow-glow: 0 0 0 1px rgba(4,120,87,.1), 0 8px 28px rgba(4,120,87,.18);
+        }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--slate-700);
+            background: var(--cream);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4 { font-family: 'Fraunces', serif; color: var(--slate-900); line-height: 1.15; }
+        .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: 'Inter', sans-serif; font-size: .76rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: .12em;
+            color: var(--amber-dark); background: var(--cream-2);
+            padding: 6px 14px; border-radius: 999px;
+            border: 1px solid rgba(217,119,6,.2);
+        }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+            font-family: 'Inter', sans-serif; font-weight: 600; font-size: .98rem;
+            padding: 14px 26px; border-radius: 14px; text-decoration: none;
+            cursor: pointer; border: 2px solid transparent; transition: all .2s;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .btn-primary { background: var(--green); color: white; box-shadow: var(--shadow-md); }
+        .btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+        .btn-secondary { background: var(--white); color: var(--green-dark); border-color: var(--slate-200); }
+        .btn-secondary:hover { border-color: var(--green); color: var(--green); }
+        .btn-amber { background: var(--amber); color: white; }
+        .btn-amber:hover { background: var(--amber-dark); transform: translateY(-2px); }
+        .btn-lg { padding: 17px 34px; font-size: 1.05rem; }
+        section { padding: 88px 0; position: relative; }
+        .section-head { text-align: center; max-width: 720px; margin: 0 auto 56px; }
+        .section-head h2 { font-size: clamp(1.9rem, 4vw, 2.85rem); font-weight: 700; margin: 18px 0 16px; }
+        .section-head p { font-size: 1.08rem; color: var(--slate-600); }
+
+        /* ===== NAV ===== */
+        nav {
+            position: sticky; top: 0; z-index: 50;
+            background: rgba(255,253,245,.92);
+            backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(15,23,42,.06);
+        }
+        .nav-in { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+        .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .brand .lg {
+            width: 42px; height: 42px; border-radius: 12px;
+            background: linear-gradient(135deg, var(--green), var(--green-light));
+            display: grid; place-items: center; color: white; font-size: 1.2rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .brand .lg i { line-height: 1; }
+        .brand-txt { display: flex; flex-direction: column; line-height: 1.1; }
+        .brand-txt b { font-family: 'Fraunces', serif; font-size: 1.15rem; color: var(--green-dark); font-weight: 700; }
+        .brand-txt small { font-size: .68rem; color: var(--slate-500); font-weight: 500; letter-spacing: .03em; }
+        .nav-links { display: flex; align-items: center; gap: 4px; }
+        .nav-links a {
+            color: var(--slate-600); text-decoration: none; font-size: .9rem; font-weight: 500;
+            padding: 9px 14px; border-radius: 10px; transition: .15s;
+        }
+        .nav-links a:hover { color: var(--green-dark); background: var(--green-50); }
+        .nav-cta { margin-left: 8px; padding: 10px 20px !important; background: var(--green); color: white !important; border-radius: 11px !important; font-weight: 600 !important; }
+        .nav-cta:hover { background: var(--green-dark) !important; }
+        .hamburger {
+            display: none; width: 44px; height: 44px; border: none; background: transparent;
+            color: var(--slate-700); font-size: 1.3rem; cursor: pointer; border-radius: 10px;
+            align-items: center; justify-content: center;
+        }
+        .hamburger:hover { background: var(--green-50); color: var(--green-dark); }
+
+        /* ===== Drawer (Google style) ===== */
+        .scrim { position: fixed; inset: 0; background: rgba(15,23,42,.55); opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; z-index: 150; backdrop-filter: blur(3px); }
+        .scrim.open { opacity: 1; visibility: visible; }
+        .drawer { position: fixed; top: 0; left: 0; bottom: 0; width: 310px; max-width: 86vw; background: var(--cream); z-index: 200; transform: translateX(-100%); transition: transform .32s cubic-bezier(.4,0,.2,1); display: flex; flex-direction: column; box-shadow: 0 0 50px rgba(0,0,0,.22); }
+        .drawer.open { transform: translateX(0); }
+        .drawer-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px; border-bottom: 1px solid var(--slate-200); }
+        .drawer-close { width: 40px; height: 40px; border: none; background: transparent; color: var(--slate-500); font-size: 1.15rem; cursor: pointer; border-radius: 10px; }
+        .drawer-close:hover { background: var(--slate-100); color: var(--slate-800); }
+        .drawer-nav { padding: 14px 14px; display: flex; flex-direction: column; gap: 3px; flex: 1; overflow-y: auto; }
+        .drawer-nav a { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--slate-700); font-size: .96rem; font-weight: 500; padding: 13px 16px; border-radius: 999px; transition: .15s; }
+        .drawer-nav a i { width: 22px; text-align: center; color: var(--slate-400); }
+        .drawer-nav a:hover { background: var(--green-50); color: var(--green-dark); }
+        .drawer-nav a:hover i { color: var(--green); }
+        .drawer-cta { margin: 12px 14px; }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 70px 0 50px;
+            background:
+                radial-gradient(1100px 480px at 85% -5%, rgba(217,119,6,.10), transparent 60%),
+                radial-gradient(900px 420px at 5% 110%, rgba(4,120,87,.10), transparent 60%),
+                linear-gradient(180deg, var(--cream), var(--cream-2));
+        }
+        .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+        .hero h1 {
+            font-size: clamp(2.1rem, 5vw, 3.6rem); font-weight: 800; letter-spacing: -.02em;
+            color: var(--slate-900); margin: 22px 0 22px;
+        }
+        .hero h1 em { font-style: italic; color: var(--green); font-weight: 700; }
+        .hero .lead { font-size: 1.18rem; color: var(--slate-600); margin-bottom: 32px; max-width: 540px; }
+        .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 40px; }
+        .hero-stats { display: flex; gap: 36px; flex-wrap: wrap; }
+        .hero-stat .num { font-family: 'Fraunces', serif; font-size: 2.3rem; font-weight: 800; color: var(--green); line-height: 1; }
+        .hero-stat .lbl { font-size: .82rem; color: var(--slate-500); font-weight: 500; margin-top: 4px; }
+
+        /* Phone mockup */
+        .phone-mockup {
+            position: relative; width: 100%; max-width: 340px; margin: 0 auto; aspect-ratio: 9/17.5;
+            background: linear-gradient(160deg, #1e293b, #0f172a);
+            border-radius: 38px; padding: 12px;
+            box-shadow: var(--shadow-lg), inset 0 0 0 2px rgba(255,255,255,.06);
+            transform: rotate(-2deg);
+        }
+        .phone-screen {
+            width: 100%; height: 100%; background: var(--slate-900); border-radius: 28px;
+            overflow: hidden; position: relative; display: flex; flex-direction: column;
+        }
+        .phone-status { background: linear-gradient(135deg, var(--green-dark), var(--green)); color: white; font-size: .58rem; padding: 7px 12px; text-align: center; font-weight: 600; letter-spacing: .03em; }
+        .phone-body { flex: 1; padding: 12px; color: #f1f5f9; font-family: 'Inter', sans-serif; font-size: .62rem; }
+        .phone-body h4 { font-family: 'Inter', sans-serif; font-size: .72rem; color: white; margin-bottom: 8px; }
+        .phone-vitals { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 10px; }
+        .phone-vital { background: rgba(5,150,105,.18); border: 1px solid rgba(16,185,129,.5); border-radius: 8px; padding: 7px; text-align: center; }
+        .phone-vital .v { font-size: .8rem; font-weight: 700; color: #10b981; }
+        .phone-vital .l { font-size: .5rem; color: #94a3b8; }
+        .phone-vital.flash { animation: bleflash 1s ease; }
+        @keyframes bleflash { 0% { background: rgba(5,150,105,.6); transform: scale(1.06); } 100% { background: rgba(5,150,105,.18); transform: scale(1); } }
+        .phone-ble { background: rgba(3,105,161,.25); border: 1px solid rgba(14,165,233,.4); border-radius: 8px; padding: 7px 9px; display: flex; align-items: center; gap: 6px; font-size: .56rem; color: #0ea5e9; margin-bottom: 8px; }
+        .phone-ble .dot { width: 6px; height: 6px; border-radius: 50%; background: #10b981; box-shadow: 0 0 6px #10b981; }
+        .phone-btn { background: linear-gradient(135deg, var(--green-dark), var(--green)); color: white; text-align: center; padding: 8px; border-radius: 8px; font-size: .62rem; font-weight: 600; }
+        .phone-sos { background: rgba(220,38,38,.2); border: 1px solid rgba(248,113,113,.5); color: #f87171; text-align: center; padding: 6px; border-radius: 7px; font-size: .56rem; font-weight: 600; margin-top: 6px; }
+
+        /* ===== PROBLEMA ===== */
+        .problema { background: var(--white); }
+        .problema-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+        .problema-card {
+            background: var(--cream); border-radius: 18px; padding: 32px 26px;
+            border: 1px solid var(--slate-200); border-top: 4px solid var(--terracota);
+            transition: transform .2s, box-shadow .2s;
+        }
+        .problema-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+        .problema-card .icon { font-size: 2rem; color: var(--terracota); margin-bottom: 14px; }
+        .problema-card h3 { font-size: 1.25rem; margin-bottom: 10px; }
+        .problema-card p { color: var(--slate-600); font-size: .96rem; }
+        .problema-card .stat { font-family: 'Fraunces', serif; font-size: 2.4rem; font-weight: 800; color: var(--terracota); display: block; margin-bottom: 6px; line-height: 1; }
+
+        /* ===== PILARES (Solución) ===== */
+        .pilares {
+            background:
+                radial-gradient(800px 400px at 90% 10%, rgba(4,120,87,.06), transparent 60%),
+                linear-gradient(180deg, var(--cream-2), var(--cream));
+        }
+        .pilar {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+            margin-bottom: 80px;
+        }
+        .pilar:last-child { margin-bottom: 0; }
+        .pilar.flip { direction: rtl; }
+        .pilar.flip > * { direction: ltr; }
+        .pilar-num { font-family: 'Fraunces', serif; font-size: 4.5rem; font-weight: 800; color: var(--green); opacity: .18; line-height: 1; }
+        .pilar h3 { font-size: clamp(1.5rem, 3vw, 2.1rem); margin: 8px 0 16px; }
+        .pilar p { color: var(--slate-600); font-size: 1.05rem; margin-bottom: 20px; }
+        .pilar-features { list-style: none; margin-bottom: 24px; }
+        .pilar-features li { display: flex; align-items: flex-start; gap: 12px; padding: 8px 0; color: var(--slate-700); font-size: .98rem; }
+        .pilar-features li i { color: var(--green); margin-top: 4px; font-size: .9rem; }
+        .pilar-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--green-50); color: var(--green-dark);
+            padding: 8px 16px; border-radius: 999px; font-size: .85rem; font-weight: 600;
+            border: 1px solid var(--green-100);
+        }
+        .pilar-visual {
+            background: white; border-radius: 22px; padding: 32px;
+            box-shadow: var(--shadow-md); border: 1px solid var(--slate-200);
+            position: relative;
+        }
+        .pilar-visual.amber { background: linear-gradient(160deg, #fffbeb, #fef3c7); border-color: #fde68a; }
+        .pilar-visual.green { background: linear-gradient(160deg, var(--green-50), #d1fae5); border-color: var(--green-100); }
+        .pilar-visual.blue { background: linear-gradient(160deg, #f0f9ff, #e0f2fe); border-color: #bae6fd; }
+
+        /* Visual Pilar 1: Equipos conectados */
+        .ble-demo { display: flex; flex-direction: column; gap: 10px; }
+        .ble-row { display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: white; border-radius: 12px; border: 1px solid var(--slate-200); }
+        .ble-row .ic { width: 38px; height: 38px; border-radius: 10px; background: var(--green-50); display: grid; place-items: center; color: var(--green); font-size: 1.1rem; }
+        .ble-row .info { flex: 1; }
+        .ble-row .info b { display: block; font-size: .9rem; color: var(--slate-800); font-family: 'Inter', sans-serif; }
+        .ble-row .info small { color: var(--slate-500); font-size: .74rem; }
+        .ble-row .check { color: var(--green); font-size: 1rem; }
+
+        /* Visual Pilar 2: Chat IA */
+        .ia-chat { display: flex; flex-direction: column; gap: 10px; font-family: 'Inter', sans-serif; }
+        .ia-msg { max-width: 85%; padding: 11px 14px; border-radius: 14px; font-size: .86rem; line-height: 1.45; }
+        .ia-msg.user { align-self: flex-end; background: var(--green); color: white; border-bottom-right-radius: 4px; }
+        .ia-msg.bot { align-self: flex-start; background: white; color: var(--slate-800); border: 1px solid var(--slate-200); border-bottom-left-radius: 4px; }
+        .ia-msg.bot b { color: var(--amber-dark); }
+        .ia-msg.validate { align-self: flex-start; background: var(--green-50); border: 1px solid var(--green-100); color: var(--green-dark); font-size: .8rem; display: flex; align-items: center; gap: 8px; }
+        .ia-typing { display: flex; gap: 4px; padding: 4px 0; }
+        .ia-typing span { width: 7px; height: 7px; background: var(--slate-400); border-radius: 50%; animation: bounce 1.4s infinite; }
+        .ia-typing span:nth-child(2) { animation-delay: .2s; }
+        .ia-typing span:nth-child(3) { animation-delay: .4s; }
+        @keyframes bounce { 0%,60%,100% { transform: translateY(0); } 30% { transform: translateY(-6px); } }
+
+        /* Visual Pilar 3: Actualizaciones */
+        .updates-list { display: flex; flex-direction: column; gap: 8px; }
+        .update-item { display: flex; align-items: center; gap: 12px; padding: 11px 14px; background: white; border-radius: 11px; border: 1px solid var(--slate-200); font-size: .86rem; }
+        .update-item .ic { width: 32px; height: 32px; border-radius: 9px; background: #fef3c7; color: var(--amber-dark); display: grid; place-items: center; font-size: .85rem; flex-shrink: 0; }
+        .update-item .txt { flex: 1; color: var(--slate-700); }
+        .update-item .txt b { color: var(--slate-900); font-family: 'Inter', sans-serif; }
+        .update-item .tag { font-size: .68rem; color: var(--green); font-weight: 600; background: var(--green-50); padding: 3px 8px; border-radius: 6px; }
+        .update-item .tag.new { background: var(--amber); color: white; }
+
+        /* ===== Sub-banner rural/urbano ===== */
+        .rural-urbano {
+            background: linear-gradient(135deg, var(--slate-900), var(--slate-800));
+            color: white; padding: 64px 0;
+        }
+        .rural-urbano .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+        .rural-urbano h2 { color: white; font-size: clamp(1.7rem, 3.5vw, 2.4rem); margin-bottom: 16px; }
+        .rural-urbano h2 em { font-style: italic; color: var(--amber-light); }
+        .rural-urbano p { color: var(--slate-300); font-size: 1.05rem; margin-bottom: 20px; }
+        .ru-toggle { display: flex; flex-direction: column; gap: 14px; }
+        .ru-card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 14px; padding: 20px; }
+        .ru-card h4 { color: white; font-family: 'Inter', sans-serif; font-size: 1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+        .ru-card p { color: var(--slate-300); font-size: .9rem; margin: 0; }
+
+        /* ===== DEMO INTERACTIVA ===== */
+        .demo { background: var(--white); }
+        .demo-stage {
+            background: linear-gradient(160deg, var(--cream), var(--cream-2));
+            border-radius: 24px; padding: 40px; border: 1px solid var(--slate-200);
+            box-shadow: var(--shadow-md);
+        }
+        .demo-caso {
+            display: flex; align-items: center; gap: 14px; padding: 14px 18px;
+            background: var(--white); border-radius: 14px; border-left: 4px solid var(--terracota);
+            margin-bottom: 28px; box-shadow: var(--shadow-sm);
+        }
+        .demo-caso .emoji { font-size: 1.8rem; }
+        .demo-caso b { font-family: 'Fraunces', serif; color: var(--slate-900); font-size: 1.05rem; }
+        .demo-caso small { color: var(--slate-500); display: block; font-size: .82rem; }
+        .demo-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 32px; position: relative; }
+        .demo-step {
+            background: var(--white); border-radius: 14px; padding: 18px 12px; text-align: center;
+            border: 2px solid var(--slate-200); position: relative; transition: all .3s;
+        }
+        .demo-step.active { border-color: var(--green); background: var(--green-50); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+        .demo-step.done { border-color: var(--green); background: var(--green-100); }
+        .demo-step .num {
+            width: 30px; height: 30px; border-radius: 50%; background: var(--slate-200);
+            color: var(--slate-600); font-weight: 700; font-size: .82rem; display: grid; place-items: center;
+            margin: 0 auto 10px; font-family: 'Inter', sans-serif;
+        }
+        .demo-step.active .num { background: var(--green); color: white; }
+        .demo-step.done .num { background: var(--green); color: white; }
+        .demo-step .ic { font-size: 1.4rem; margin-bottom: 6px; }
+        .demo-step .lbl { font-size: .72rem; color: var(--slate-700); font-weight: 600; line-height: 1.25; font-family: 'Inter', sans-serif; }
+        .demo-content {
+            background: var(--white); border-radius: 16px; padding: 28px; min-height: 180px;
+            border: 1px solid var(--slate-200); margin-bottom: 24px;
+        }
+        .demo-content h4 { font-family: 'Fraunces', serif; color: var(--slate-900); margin-bottom: 10px; }
+        .demo-content p { color: var(--slate-600); margin-bottom: 8px; }
+        .demo-nav { display: flex; justify-content: space-between; align-items: center; }
+        .demo-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+        .compare-card { border-radius: 14px; padding: 22px; text-align: center; }
+        .compare-card.bad { background: linear-gradient(160deg, #fef2f2, #fee2e2); border: 1px solid #fecaca; }
+        .compare-card.good { background: linear-gradient(160deg, var(--green-50), var(--green-100)); border: 1px solid var(--green-100); }
+        .compare-card .time { font-family: 'Fraunces', serif; font-size: 2.2rem; font-weight: 800; line-height: 1; }
+        .compare-card.bad .time { color: var(--terracota); }
+        .compare-card.good .time { color: var(--green); }
+        .compare-card small { display: block; margin-top: 6px; font-size: .82rem; }
+        .compare-card.bad small { color: var(--terracota); }
+        .compare-card.good small { color: var(--green-dark); }
+
+        /* ===== EQUIPOS BLE ===== */
+        .equipos { background: linear-gradient(180deg, var(--cream), var(--cream-2)); }
+        .equipos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+        .equipo-card {
+            background: var(--white); border-radius: 18px; padding: 28px 24px; text-align: center;
+            border: 1px solid var(--slate-200); transition: all .25s; position: relative;
+        }
+        .equipo-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--green-100); }
+        .equipo-card .ic {
+            width: 64px; height: 64px; border-radius: 18px;
+            background: linear-gradient(135deg, var(--green-50), var(--green-100));
+            display: grid; place-items: center; margin: 0 auto 16px; font-size: 1.8rem;
+        }
+        .equipo-card h4 { font-family: 'Inter', sans-serif; font-size: 1.05rem; color: var(--slate-900); margin-bottom: 6px; font-weight: 700; }
+        .equipo-card .srv { font-family: 'JetBrains Mono', monospace; font-size: .72rem; color: var(--slate-400); margin-bottom: 12px; }
+        .equipo-card p { font-size: .88rem; color: var(--slate-600); margin-bottom: 14px; }
+        .equipo-card .compat {
+            display: inline-flex; align-items: center; gap: 6px;
+            font-size: .76rem; font-weight: 600; color: var(--green-dark);
+            background: var(--green-50); padding: 5px 12px; border-radius: 999px;
+            border: 1px solid var(--green-100);
+        }
+
+        /* ===== COBERTURA RIS ===== */
+        .cobertura { background: var(--white); }
+        .ris-tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 32px; flex-wrap: wrap; }
+        .ris-tab {
+            padding: 11px 22px; border-radius: 12px; border: 2px solid var(--slate-200);
+            background: var(--white); color: var(--slate-600); font-weight: 600; font-size: .92rem;
+            cursor: pointer; transition: all .2s; font-family: 'Inter', sans-serif;
+        }
+        .ris-tab:hover { border-color: var(--green-100); color: var(--green-dark); }
+        .ris-tab.active { background: var(--green); color: white; border-color: var(--green); }
+        .ris-panel { background: var(--cream); border-radius: 20px; padding: 36px; border: 1px solid var(--slate-200); }
+        .ris-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px; }
+        .ris-head h3 { font-size: 1.7rem; }
+        .ris-stats { display: flex; gap: 24px; }
+        .ris-stats .stat { text-align: center; }
+        .ris-stats .stat .n { font-family: 'Fraunces', serif; font-size: 1.8rem; font-weight: 800; color: var(--green); line-height: 1; }
+        .ris-stats .stat .l { font-size: .74rem; color: var(--slate-500); }
+        .ris-redes { display: flex; flex-direction: column; gap: 10px; }
+        .ris-red { background: var(--white); border-radius: 14px; border: 1px solid var(--slate-200); overflow: hidden; }
+        .ris-red-head { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; cursor: pointer; }
+        .ris-red-head:hover { background: var(--green-50); }
+        .ris-red-head b { font-family: 'Inter', sans-serif; color: var(--slate-900); font-size: .98rem; }
+        .ris-red-head .meta { font-size: .8rem; color: var(--slate-500); }
+        .ris-red-head i { color: var(--slate-400); transition: transform .2s; }
+        .ris-red.open .ris-red-head i { transform: rotate(180deg); }
+        .ris-red-body { display: none; padding: 0 18px 16px; }
+        .ris-red.open .ris-red-body { display: block; }
+        .ris-red-body .label { font-size: .72rem; color: var(--slate-500); text-transform: uppercase; letter-spacing: .05em; margin: 8px 0; font-weight: 600; }
+        .ris-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+        .ris-chip { font-size: .78rem; padding: 5px 11px; background: var(--green-50); color: var(--green-dark); border-radius: 999px; border: 1px solid var(--green-100); font-weight: 500; }
+        .ris-chip.ref { background: linear-gradient(135deg, var(--amber), var(--amber-dark)); color: white; border-color: var(--amber-dark); }
+
+        /* ===== PAQUETES / PRECIOS ===== */
+        .paquetes { background: linear-gradient(180deg, var(--cream-2), var(--cream)); }
+        .paquetes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
+        .paquete {
+            background: var(--white); border-radius: 22px; padding: 36px 30px;
+            border: 2px solid var(--slate-200); position: relative; transition: all .25s;
+            display: flex; flex-direction: column;
+        }
+        .paquete:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+        .paquete.featured { border-color: var(--green); box-shadow: var(--shadow-glow); }
+        .paquete.featured::before {
+            content: 'MÁS PEDIDO'; position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+            background: var(--amber); color: white; font-size: .72rem; font-weight: 700;
+            padding: 5px 14px; border-radius: 999px; letter-spacing: .05em;
+        }
+        .paquete h3 { font-size: 1.4rem; margin-bottom: 6px; }
+        .paquete .desc { font-size: .88rem; color: var(--slate-500); margin-bottom: 18px; }
+        .paquete .precio { font-family: 'Fraunces', serif; margin-bottom: 4px; }
+        .paquete .precio .num { font-size: 2.6rem; font-weight: 800; color: var(--green); line-height: 1; }
+        .paquete .precio .per { font-size: .9rem; color: var(--slate-500); }
+        .paquete .precio.custom .num { font-size: 1.8rem; }
+        .paquete ul { list-style: none; margin: 22px 0; flex: 1; }
+        .paquete ul li { display: flex; align-items: flex-start; gap: 10px; padding: 7px 0; font-size: .92rem; color: var(--slate-700); }
+        .paquete ul li i { color: var(--green); margin-top: 4px; font-size: .82rem; }
+        .paquete .btn { width: 100%; }
+        .paquetes-nota { text-align: center; margin-top: 32px; font-size: .84rem; color: var(--slate-500); }
+
+        /* ===== CTA FINAL ===== */
+        .cta-final {
+            background:
+                radial-gradient(700px 350px at 20% 30%, rgba(217,119,6,.15), transparent 60%),
+                linear-gradient(135deg, var(--green-dark), var(--green));
+            color: white; padding: 80px 0;
+        }
+        .cta-final .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+        .cta-final h2 { color: white; font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 16px; }
+        .cta-final p { color: rgba(255,255,255,.88); font-size: 1.08rem; margin-bottom: 24px; }
+        .cta-final .legal { font-size: .82rem; color: rgba(255,255,255,.7); display: flex; align-items: center; gap: 10px; }
+        .cta-form {
+            background: white; border-radius: 22px; padding: 32px; box-shadow: var(--shadow-lg);
+        }
+        .cta-form h3 { font-size: 1.3rem; margin-bottom: 6px; }
+        .cta-form p.small { font-size: .86rem; color: var(--slate-500); margin-bottom: 20px; }
+        .form-row { margin-bottom: 14px; }
+        .form-row label { display: block; font-size: .8rem; font-weight: 600; color: var(--slate-700); margin-bottom: 6px; }
+        .form-row input, .form-row select {
+            width: 100%; padding: 12px 14px; border: 2px solid var(--slate-200); border-radius: 11px;
+            font-family: inherit; font-size: .95rem; background: var(--cream); transition: border .2s;
+        }
+        .form-row input:focus, .form-row select:focus { outline: none; border-color: var(--green); }
+
+        /* ===== FOOTER ===== */
+        footer { background: var(--slate-900); color: var(--slate-300); padding: 56px 0 28px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+        .footer-brand .lg { width: 38px; height: 38px; border-radius: 11px; background: linear-gradient(135deg, var(--green), var(--green-light)); display: grid; place-items: center; color: white; }
+        .footer-brand b { font-family: 'Fraunces', serif; color: white; font-size: 1.1rem; }
+        footer h5 { color: white; font-family: 'Inter', sans-serif; font-size: .86rem; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: .06em; }
+        footer ul { list-style: none; }
+        footer ul li { padding: 4px 0; }
+        footer ul li a { color: var(--slate-400); text-decoration: none; font-size: .88rem; transition: color .15s; }
+        footer ul li a:hover { color: var(--green-light); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding-top: 22px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: .8rem; color: var(--slate-500); }
+
+        /* ===== TOAST ===== */
+        .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--green-dark); color: white; padding: 14px 22px; border-radius: 12px; font-size: .92rem; font-weight: 500; box-shadow: var(--shadow-lg); opacity: 0; transition: all .3s; z-index: 999; }
+        .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+        /* ===== COMPARACIÓN TCO ===== */
+        .tco { background: var(--white); }
+        .tco-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 920px; margin: 0 auto 40px; }
+        .tco-card {
+            border-radius: 20px; padding: 36px 30px; position: relative;
+            border: 2px solid var(--slate-200);
+        }
+        .tco-card.trad { background: linear-gradient(160deg, #fef2f2, #fee2e2); border-color: #fecaca; }
+        .tco-card.ours { background: linear-gradient(160deg, var(--green-50), var(--green-100)); border-color: var(--green-100); box-shadow: var(--shadow-glow); }
+        .tco-tag {
+            position: absolute; top: -13px; left: 30px;
+            font-size: .72rem; font-weight: 700; padding: 5px 14px;
+            border-radius: 999px; letter-spacing: .05em; text-transform: uppercase;
+        }
+        .tco-card.trad .tco-tag { background: var(--terracota); color: white; }
+        .tco-card.ours .tco-tag { background: var(--green); color: white; }
+        .tco-card h3 { font-size: 1.3rem; margin: 12px 0 6px; }
+        .tco-card .sub { font-size: .82rem; color: var(--slate-500); margin-bottom: 22px; }
+        .tco-card .total {
+            font-family: 'Fraunces', serif; font-size: 2.6rem; font-weight: 800;
+            line-height: 1; margin-bottom: 4px;
+        }
+        .tco-card.trad .total { color: var(--terracota); }
+        .tco-card.ours .total { color: var(--green); }
+        .tco-card .per { font-size: .82rem; color: var(--slate-500); margin-bottom: 22px; }
+        .tco-card ul { list-style: none; }
+        .tco-card ul li { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; font-size: .88rem; color: var(--slate-600); }
+        .tco-card.trad ul li i { color: var(--terracota); margin-top: 4px; font-size: .8rem; }
+        .tco-card.ours ul li i { color: var(--green); margin-top: 4px; font-size: .8rem; }
+        .tco-savings {
+            background: linear-gradient(135deg, var(--green-dark), var(--green));
+            border-radius: 20px; padding: 36px; color: white; text-align: center;
+            max-width: 920px; margin: 0 auto;
+            box-shadow: var(--shadow-lg);
+        }
+        .tco-savings .big {
+            font-family: 'Fraunces', serif; font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800; line-height: 1; color: var(--amber-light);
+        }
+        .tco-savings h3 { color: white; font-size: 1.4rem; margin: 12px 0 8px; }
+        .tco-savings p { color: rgba(255,255,255,.9); font-size: 1rem; max-width: 600px; margin: 0 auto; }
+        .tco-savings .small { font-size: .78rem; color: rgba(255,255,255,.7); margin-top: 16px; }
+        @media (max-width: 768px) {
+            .tco-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 980px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+            .phone-mockup { max-width: 290px; }
+            .pilar { grid-template-columns: 1fr; gap: 28px; }
+            .pilar.flip { direction: ltr; }
+            .pilar-visual { order: 2; }
+            .problema-grid { grid-template-columns: 1fr; }
+            .equipos-grid { grid-template-columns: repeat(2, 1fr); }
+            .paquetes-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+            .cta-final .wrap { grid-template-columns: 1fr; }
+            .rural-urbano .wrap { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+            .demo-steps { grid-template-columns: repeat(5, 1fr); gap: 4px; }
+            .demo-step { padding: 12px 6px; }
+            .demo-step .lbl { font-size: .64rem; }
+        }
+        @media (max-width: 860px) {
+            .nav-links { display: none; }
+            .hamburger { display: inline-flex; }
+            section { padding: 64px 0; }
+            .hero-stats { gap: 24px; }
+            .demo-steps { grid-template-columns: 1fr 1fr 1fr; }
+            .demo-compare { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 640px) {
+            .wrap { padding: 0 18px; }
+            .hero h1 { font-size: 2.1rem; }
+            .hero .lead { font-size: 1.02rem; }
+            .hero-stats { gap: 18px; }
+            .hero-stat .num { font-size: 1.7rem; }
+            .equipos-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+            .demo-stage { padding: 22px 16px; }
+            .ris-panel { padding: 22px 18px; }
+            .ris-head { flex-direction: column; align-items: flex-start; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .demo-steps { grid-template-columns: 1fr 1fr; }
+            .section-head h2 { font-size: 1.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+    <div class="wrap nav-in">
+        <a href="#" class="brand">
+            <div class="lg"><i class="fa-solid fa-heart-pulse"></i></div>
+            <div class="brand-txt">
+                <b>Salud Amazonas</b>
+                <small>Telemedicina Plug &amp; Play</small>
+            </div>
+        </a>
+        <div class="nav-links">
+            <a href="#problema">El problema</a>
+            <a href="#solucion">Cómo funciona</a>
+            <a href="#demo">Demo</a>
+            <a href="#equipos">Equipos</a>
+            <a href="#cobertura">Cobertura</a>
+            <a href="#tco">Costos</a>
+            <a href="#paquetes">Modalidades</a>
+            <a href="#contacto" class="nav-cta">Agenda demo</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menú"><i class="fa-solid fa-bars"></i></button>
+    </div>
+</nav>
+
+<!-- ===== Drawer ===== -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer">
+    <div class="drawer-head">
+        <div class="brand">
+            <div class="lg"><i class="fa-solid fa-heart-pulse"></i></div>
+            <div class="brand-txt"><b>Salud Amazonas</b></div>
+        </div>
+        <button class="drawer-close" id="drawer-close" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <nav class="drawer-nav">
+        <a href="#problema"><i class="fa-solid fa-triangle-exclamation"></i> El problema</a>
+        <a href="#solucion"><i class="fa-solid fa-microchip"></i> Cómo funciona</a>
+        <a href="#demo"><i class="fa-solid fa-play"></i> Demo en vivo</a>
+        <a href="#equipos"><i class="fa-solid fa-bluetooth"></i> Equipos compatibles</a>
+        <a href="#cobertura"><i class="fa-solid fa-map-location-dot"></i> Cobertura Amazonas</a>
+        <a href="#tco"><i class="fa-solid fa-calculator"></i> Comparación de costos</a>
+        <a href="#paquetes"><i class="fa-solid fa-layer-group"></i> Modalidades</a>
+        <a href="#contacto"><i class="fa-solid fa-comments"></i> Contacto</a>
+    </nav>
+    <div class="drawer-cta">
+        <a href="#contacto" class="btn btn-primary" style="width:100%"><i class="fa-brands fa-whatsapp"></i> Agenda una demo</a>
+    </div>
+</aside>
+
+<!-- ===== 1. HERO ===== -->
+<header class="hero" id="inicio">
+    <div class="wrap hero-grid">
+        <div>
+            <span class="eyebrow"><i class="fa-solid fa-location-dot"></i> Hecho para Amazonas · 4 RIS</span>
+            <h1>La posta más lejana de Amazonas, <em>con médico presente.</em></h1>
+            <p class="lead">
+                Plataforma de telemedicina <strong>offline-first</strong> con equipos médicos
+                <strong>Bluetooth plug-and-play</strong> y un <strong>asistente IA clínico</strong> 24/7.
+                Funciona con o sin señal. Se instala en minutos.
+            </p>
+            <div class="hero-cta">
+                <a href="#demo" class="btn btn-primary btn-lg"><i class="fa-solid fa-play"></i> Ver demo en vivo</a>
+                <a href="#contacto" class="btn btn-secondary btn-lg"><i class="fa-brands fa-whatsapp"></i> Hablar con un asesor</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="num">475</div>
+                    <div class="lbl">Establecimientos<br>de salud</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="num">7</div>
+                    <div class="lbl">Provincias<br>cubiertas</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="num">0</div>
+                    <div class="lbl">Configuración<br>(plug &amp; play)</div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div class="phone-status">🟢 EN LÍNEA · Sincronizando</div>
+                    <div class="phone-body">
+                        <h4>📋 Consulta · María Huampami</h4>
+                        <div class="phone-ble">
+                            <span class="dot"></span>
+                            💓 Oxímetro conectado
+                        </div>
+                        <div class="phone-vitals">
+                            <div class="phone-vital flash" id="pv1">
+                                <div class="v">98%</div>
+                                <div class="l">SpO2</div>
+                            </div>
+                            <div class="phone-vital flash" id="pv2">
+                                <div class="v">72</div>
+                                <div class="l">Pulso</div>
+                            </div>
+                            <div class="phone-vital">
+                                <div class="v">37.5</div>
+                                <div class="l">Temp °C</div>
+                            </div>
+                            <div class="phone-vital">
+                                <div class="v">120/80</div>
+                                <div class="l">PA mmHg</div>
+                            </div>
+                        </div>
+                        <div class="phone-btn">💾 Guardar consulta</div>
+                        <div class="phone-sos">🆘 SOS al médico</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ===== 2. EL PROBLEMA ===== -->
+<section class="problema" id="problema">
+    <div class="wrap">
+        <div class="section-head">
+            <span class="eyebrow"><i class="fa-solid fa-triangle-exclamation"></i> La realidad</span>
+            <h2>Amazonas tiene la geografía más difícil del país para la salud</h2>
+            <p>Datos reales de REUNIS/MINSA sobre las postas rurales de la región.</p>
+        </div>
+        <div class="problema-grid">
+            <div class="problema-card">
+                <div class="icon"><i class="fa-solid fa-route"></i></div>
+                <span class="stat">6-8 h</span>
+                <h3>De viaje al hospital</h3>
+                <p>Las comunidades Awajún y Wampis están a horas por río y trocha del hospital de referencia más cercano.</p>
+            </div>
+            <div class="problema-card">
+                <div class="icon"><i class="fa-solid fa-user-nurse"></i></div>
+                <span class="stat">I-1</span>
+                <h3>Postas sin médico</h3>
+                <p>Los establecimientos I-1 solo tienen una técnica de enfermería. Atiende sola emergencias que no debería.</p>
+            </div>
+            <div class="problema-card">
+                <div class="icon"><i class="fa-solid fa-satellite-dish"></i></div>
+                <span class="stat">0 MB</span>
+                <h3>Sin conectividad</h3>
+                <p>Gran parte de Condorcanqui y zonas de Bagua no tienen señal estable. Las soluciones que requieren internet, allí no funcionan.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 3. LA SOLUCIÓN (3 PILARES) ===== -->
+<section class="pilares" id="solucion">
+    <div class="wrap">
+        <div class="section-head">
+            <span class="eyebrow"><i class="fa-solid fa-microchip"></i> Cómo funciona</span>
+            <h2>Una solución pensada para la posta, no para el hospital</h2>
+            <p>Tres pilares que convierten cualquier establecimiento de salud en un nodo conectado — sin importar dónde esté.</p>
+        </div>
+
+        <!-- PILAR 1: PLUG & PLAY -->
+        <div class="pilar">
+            <div>
+                <div class="pilar-num">01</div>
+                <span class="pilar-badge"><i class="fa-solid fa-bluetooth"></i> Plug &amp; Play</span>
+                <h3>Cualquier equipo médico Bluetooth. Lo conectas y lee.</h3>
+                <p>
+                    Oxímetros, tensiómetros, termómetros, glucómetros y balanzas que cumplen el estándar
+                    Bluetooth SIG. Sin drivers, sin software extra, sin configuración. El técnico enciende el
+                    equipo y el signo vital aparece solo en la app.
+                </p>
+                <ul class="pilar-features">
+                    <li><i class="fa-solid fa-check"></i> Estándar Bluetooth SIG universal (no propietario)</li>
+                    <li><i class="fa-solid fa-check"></i> Cero drivers, cero mantenimiento de software</li>
+                    <li><i class="fa-solid fa-check"></i> Compatible con marcas comerciales: Beurer, Omron, A&amp;D, Nonin, Contec</li>
+                    <li><i class="fa-solid fa-check"></i> Funciona en cualquier celular Android con Chrome</li>
+                </ul>
+            </div>
+            <div class="pilar-visual green">
+                <div class="ble-demo">
+                    <div class="ble-row">
+                        <div class="ic">💓</div>
+                        <div class="info"><b>Oxímetro</b><small>SpO2 98% · Pulso 72</small></div>
+                        <div class="check"><i class="fa-solid fa-circle-check"></i></div>
+                    </div>
+                    <div class="ble-row">
+                        <div class="ic">🩸</div>
+                        <div class="info"><b>Tensiómetro</b><small>PA 120/80 mmHg</small></div>
+                        <div class="check"><i class="fa-solid fa-circle-check"></i></div>
+                    </div>
+                    <div class="ble-row">
+                        <div class="ic">🌡️</div>
+                        <div class="info"><b>Termómetro</b><small>37.5 °C</small></div>
+                        <div class="check"><i class="fa-solid fa-circle-check"></i></div>
+                    </div>
+                    <div class="ble-row">
+                        <div class="ic">⚖️</div>
+                        <div class="info"><b>Balanza</b><small>65.0 kg · IMC 22.5</small></div>
+                        <div class="check"><i class="fa-solid fa-circle-check"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PILAR 2: IA CLÍNICA -->
+        <div class="pilar flip">
+            <div>
+                <div class="pilar-num">02</div>
+                <span class="pilar-badge"><i class="fa-solid fa-robot"></i> IA + Médico humano</span>
+                <h3>El técnico nunca está solo. La IA responde, el médico valida.</h3>
+                <p>
+                    Un asistente de IA clínico resuelve dudas y orienta decisiones en tiempo real, 24/7.
+                    Cuando el caso es delicado, el médico de la RIS valida con un clic. La IA no reemplaza
+                    al médico: lo <em>multiplica</em>.
+                </p>
+                <ul class="pilar-features">
+                    <li><i class="fa-solid fa-check"></i> Consultas y dudas resueltas en segundos</li>
+                    <li><i class="fa-solid fa-check"></i> Protocolos MINSA integrados (ofidismo, dengue, malaria)</li>
+                    <li><i class="fa-solid fa-check"></i> Validación médica con 1 clic</li>
+                    <li><i class="fa-solid fa-check"></i> Funciona offline con base de conocimiento precargada</li>
+                </ul>
+            </div>
+            <div class="pilar-visual blue">
+                <div class="ia-chat">
+                    <div class="ia-msg user">Niño 4 años, fiebre 39°C, manchas rojas en piernas. ¿Qué hago?</div>
+                    <div class="ia-msg bot">
+                        <b>🤖 IA Clínica</b><br>
+                        Posible <b>dengue</b>. Sugerencias:<br>
+                        • Prueba rápida NS1 si hay disponible<br>
+                        • Hidratación oral agresiva<br>
+                        • Vigilar signos de alarma (dolor abdominal, vómito)
+                    </div>
+                    <div class="ia-msg validate">
+                        <i class="fa-solid fa-user-doctor"></i> Validado por Dr. Pérez · RIS Bagua
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PILAR 3: SIEMPRE ACTUALIZADO -->
+        <div class="pilar">
+            <div>
+                <div class="pilar-num">03</div>
+                <span class="pilar-badge"><i class="fa-solid fa-arrows-rotate"></i> Actualización constante</span>
+                <h3>Protocolos, guías y formularios siempre al día.</h3>
+                <p>
+                    La plataforma se mantiene en evolución continua. Cuando una posta encuentra señal —aunque
+                    sea unos minutos al día— descarga automáticamente las últimas guías clínicas del MINSA,
+                    protocolos regionales y mejoras de la app. Todo, sin que nadie toque nada.
+                </p>
+                <ul class="pilar-features">
+                    <li><i class="fa-solid fa-check"></i> Guías MINSA actualizadas (ofidismo, dengue, COVID, malaria)</li>
+                    <li><i class="fa-solid fa-check"></i> Formularios HIS/RENIPRESS sincronizados</li>
+                    <li><i class="fa-solid fa-check"></i> Nuevas funciones de la app llegan solas</li>
+                    <li><i class="fa-solid fa-check"></i> Cero visitas técnicas de mantenimiento</li>
+                </ul>
+            </div>
+            <div class="pilar-visual amber">
+                <div class="updates-list">
+                    <div class="update-item">
+                        <div class="ic"><i class="fa-solid fa-snake"></i></div>
+                        <div class="txt"><b>Protocolo Ofidismo</b> RM 794-2021/MINSA</div>
+                        <span class="tag new">NUEVO</span>
+                    </div>
+                    <div class="update-item">
+                        <div class="ic"><i class="fa-solid fa-mosquito"></i></div>
+                        <div class="txt"><b>Guía Dengue 2026</b> región selva</div>
+                        <span class="tag new">NUEVO</span>
+                    </div>
+                    <div class="update-item">
+                        <div class="ic"><i class="fa-solid fa-file-lines"></i></div>
+                        <div class="txt"><b>Formulario HIS</b> actualizado</div>
+                        <span class="tag">HOY</span>
+                    </div>
+                    <div class="update-item">
+                        <div class="ic"><i class="fa-solid fa-mobile-screen"></i></div>
+                        <div class="txt"><b>App v2.1</b> mejoras de rendimiento</div>
+                        <span class="tag">HOY</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Sub-banner: Rural + Urbano ===== -->
+<section class="rural-urbano">
+    <div class="wrap">
+        <div>
+            <span class="eyebrow" style="background:rgba(255,255,255,.08);color:var(--amber-light);border-color:rgba(217,119,6,.4)"><i class="fa-solid fa-tree"></i> Una sola plataforma</span>
+            <h2>Funciona en la <em>posta rural</em> y en el <em>centro urbano</em>.</h2>
+            <p>
+                La misma app, los mismos equipos. En la posta I-1 de Condorcanqui trabaja 100% offline.
+                En el centro de salud de Bagua Grande aprovecha la conectividad para videoconsultas en tiempo real.
+                El sistema se adapta al contexto, no al revés.
+            </p>
+        </div>
+        <div class="ru-toggle">
+            <div class="ru-card">
+                <h4><i class="fa-solid fa-tree"></i> Modo Posta Rural</h4>
+                <p>Offline-first. Registra consultas, captura signos vitales y usa la IA sin conexión. Sincroniza cuando aparece señal 3G/WiFi.</p>
+            </div>
+            <div class="ru-card">
+                <h4><i class="fa-solid fa-building"></i> Modo Centro Urbano</h4>
+                <p>Teleinterconsulta en tiempo real con el hospital de referencia. Videoconsulta, signos en vivo y derivación asistida.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 4. DEMO INTERACTIVA ===== -->
+<section class="demo" id="demo">
+    <div class="wrap">
+        <div class="section-head">
+            <span class="eyebrow"><i class="fa-solid fa-play"></i> Demo en vivo</span>
+            <h2>Caso real: mordedura de Shushupe en Huampami</h2>
+            <p>Recorre el flujo paso a paso. Compara el tiempo de respuesta con y sin el sistema.</p>
+        </div>
+
+        <div class="demo-stage">
+            <div class="demo-caso">
+                <div class="emoji">🐍</div>
+                <div>
+                    <b>Caso clínico</b>
+                    <small>Comunidad Huampami (Condorcanqui) · Técnica Rosa · Paciente Awajún adulto mordido por Shushupe</small>
+                </div>
+            </div>
+
+            <div class="demo-steps" id="demo-steps">
+                <div class="demo-step active" data-step="0">
+                    <div class="num">1</div>
+                    <div class="ic">💓</div>
+                    <div class="lbl">Conecta oxímetro BLE</div>
+                </div>
+                <div class="demo-step" data-step="1">
+                    <div class="num">2</div>
+                    <div class="ic">🤖</div>
+                    <div class="lbl">IA sugiere protocolo</div>
+                </div>
+                <div class="demo-step" data-step="2">
+                    <div class="num">3</div>
+                    <div class="ic">👨‍⚕️</div>
+                    <div class="lbl">Médico valida</div>
+                </div>
+                <div class="demo-step" data-step="3">
+                    <div class="num">4</div>
+                    <div class="ic">🆘</div>
+                    <div class="lbl">SOS + traslado</div>
+                </div>
+                <div class="demo-step" data-step="4">
+                    <div class="num">5</div>
+                    <div class="ic">⏱️</div>
+                    <div class="lbl">Resultado</div>
+                </div>
+            </div>
+
+            <div class="demo-content" id="demo-content">
+                <h4>Paso 1 — El técnico conecta el oxímetro</h4>
+                <p>Rosa toca "Oxímetro" en la app. Aparece el selector Bluetooth. Elige el equipo. <strong>Aparece solo:</strong> SpO2 89% (bajo), pulso 110.</p>
+                <p style="color:var(--terracota);font-weight:600">⚠️ La app marca alerta: SpO2 crítico. Posible complicación respiratoria por envenenamiento.</p>
+            </div>
+
+            <div class="demo-nav">
+                <button class="btn btn-secondary" id="demo-prev"><i class="fa-solid fa-arrow-left"></i> Anterior</button>
+                <small style="color:var(--slate-500)">Paso <span id="demo-current">1</span> de 5</small>
+                <button class="btn btn-primary" id="demo-next">Siguiente <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <div class="demo-compare" id="demo-compare" style="display:none">
+                <div class="compare-card bad">
+                    <div class="time">8 h</div>
+                    <small>Sin sistema — el paciente llega al hospital tarde, con secuelas</small>
+                </div>
+                <div class="compare-card good">
+                    <div class="time">30 min</div>
+                    <small>Con sistema — traslado activado con suero antiofídico esperando</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 5. EQUIPOS BLE ===== -->
+<section class="equipos" id="equipos">
+    <div class="wrap">
+        <div class="section-head">
+            <span class="eyebrow"><i class="fa-solid fa-bluetooth"></i> Equipos compatibles</span>
+            <h2>6 tipos de equipos, una sola app</h2>
+            <p>Todos cumplen el estándar Bluetooth SIG. Cualquier marca comercial compatible funciona.</p>
+        </div>
+        <div class="equipos-grid">
+            <div class="equipo-card">
+                <div class="ic">💓</div>
+                <h4>Oxímetro</h4>
+                <div class="srv">Servicio 0x1822 · Car. 2A5F</div>
+                <p>SpO2 + frecuencia cardíaca + índice de perfusión</p>
+                <span class="compat"><i class="fa-solid fa-check"></i> Plug &amp; Play</span>
+            </div>
+            <div class="equipo-card">
+                <div class="ic">🩸</div>
+                <h4>Tensiómetro</h4>
+                <div class="srv">Servicio 0x1810 · Car. 2A35</div>
+                <p>Sistólica, diastólica y pulso (mmHg automático)</p>
+                <span class="compat"><i class="fa-solid fa-check"></i> Plug &amp; Play</span>
+            </div>
+            <div class="equipo-card">
+                <div class="ic">🌡️</div>
+                <h4>Termómetro</h4>
+                <div class="srv">Servicio 0x1809 · Car. 2A1C</div>
+                <p>Temperatura corporal (°C, conversión automática)</p>
+                <span class="compat"><i class="fa-solid fa-check"></i> Plug &amp; Play</span>
+            </div>
+            <div class="equipo-card">
+                <div class="ic">🩸</div>
+                <h4>Glucómetro</h4>
+                <div class="srv">Servicio 0x1808 · Car. 2A18</div>
+                <p>Glucosa en sangre (mg/dL) con tipo de muestra</p>
+                <span class="compat"><i class="fa-solid fa-check"></i> Plug &amp; Play</span>
+            </div>
+            <div class="equipo-card">
+                <div class="ic">⚖️</div>
+                <h4>Balanza</h4>
+                <div class="srv">Servicio 0x181D · Car. 2A9D</div>
+                <p>Peso + cálculo de IMC (kg)</p>
+                <span class="compat"><i class="fa-solid fa-check"></i> Plug &amp; Play</span>
+            </div>
+            <div class="equipo-card">
+                <div class="ic">❤️</div>
+                <h4>Pulsómetro</h4>
+                <div class="srv">Servicio 0x180D · Car. 2A37</div>
+                <p>Frecuencia cardíaca continua + intervalos RR</p>
+                <span class="compat"><i class="fa-solid fa-check"></i> Plug &amp; Play</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 6. COBERTURA AMAZONAS (RIS) ===== -->
+<section class="cobertura" id="cobertura">
+    <div class="wrap">
+        <div class="section-head">
+            <span class="eyebrow"><i class="fa-solid fa-map-location-dot"></i> Cobertura regional</span>
+            <h2>Las 4 Redes Integradas de Salud de Amazonas</h2>
+            <p>Datos reales RENIPRESS/DIRESA. Cada posta de la región puede ser un nodo conectado.</p>
+        </div>
+
+        <div class="ris-tabs" id="ris-tabs"></div>
+        <div class="ris-panel" id="ris-panel"></div>
+    </div>
+</section>
+
+<!-- ===== 6.5. COMPARACIÓN TCO (Costo Total de Propiedad) ===== -->
+<section class="tco" id="tco">
+    <div class="wrap">
+        <div class="section-head">
+            <span class="eyebrow"><i class="fa-solid fa-calculator"></i> Comparación de costos</span>
+            <h2>69% más barato que la solución tradicional — en 5 años</h2>
+            <p>Comparación fundamentada en un presupuesto real de telemedicina rural para 50 postas en Amazonas. Nuestro modelo elimina la infraestructura pesada y deja solo lo esencial.</p>
+        </div>
+
+        <div class="tco-grid">
+            <div class="tco-card trad">
+                <span class="tco-tag">Solución tradicional</span>
+                <h3>Infraestructura pesada</h3>
+                <div class="sub">Servidor rugerizado + tablets dedicadas + paneles solares por posta</div>
+                <div class="total">100%</div>
+                <div class="per">Línea base · costo total de propiedad a 5 años · 50 postas</div>
+                <ul>
+                    <li><i class="fa-solid fa-xmark"></i> Servidor rugerizado Lenovo por posta — <strong>9%</strong> del presupuesto</li>
+                    <li><i class="fa-solid fa-xmark"></i> Tablets Samsung dedicadas ×3 por posta — <strong>19%</strong></li>
+                    <li><i class="fa-solid fa-xmark"></i> Sistema solar completo por posta — <strong>13%</strong></li>
+                    <li><i class="fa-solid fa-xmark"></i> Gabinetes IP66 + cableado + APs outdoor — <strong>6%</strong></li>
+                    <li><i class="fa-solid fa-xmark"></i> Logística fluvial + cuadrillas técnicas — <strong>11%</strong></li>
+                    <li><i class="fa-solid fa-xmark"></i> Soporte anual nivel 2/3 <em>(cada año)</em></li>
+                </ul>
+            </div>
+            <div class="tco-card ours">
+                <span class="tco-tag">Salud Amazonas</span>
+                <h3>PWA + Bluetooth plug-and-play</h3>
+                <div class="sub">La app corre en el celular del técnico. Solo añadimos kits BLE.</div>
+                <div class="total">31%</div>
+                <div class="per">Del costo tradicional · mismo alcance · 50 postas a 5 años</div>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> <strong>−100%</strong> de servidores locales — corre en cualquier Android</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>−100%</strong> de tablets dedicadas — usa el celular del técnico</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>−100%</strong> de paneles solares — se carga en cualquier toma</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>−100%</strong> de gabinetes y cableado — no hay red que proteger</li>
+                    <li><i class="fa-solid fa-check"></i> Kits Bluetooth estándar SIG (plug &amp; play universal)</li>
+                    <li><i class="fa-solid fa-check"></i> Cloud + IA clínica + soporte remoto</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tco-savings">
+            <div class="big">69%</div>
+            <h3>de ahorro frente a la solución tradicional</h3>
+            <p>Con el mismo presupuesto, el GORE Amazonas podría equipar <strong>hasta 3 veces más postas</strong> — o destinar el ahorro a otros déficits críticos de salud en la región.</p>
+            <div class="small">Fuente: comparación contra presupuesto detallado de telemedicina tradicional para 50 postas en Amazonas. Cifras relativas al costo total de propiedad a 5 años.</div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== 7. MODALIDADES (sin precio público — cotización a requerimiento) ===== -->
+<section class="paquetes" id="paquetes">
+    <div class="wrap">
+        <div class="section-head">
+            <span class="eyebrow"><i class="fa-solid fa-layer-group"></i> Modalidades</span>
+            <h2>Tres formas de empezar, según tu alcance</h2>
+            <p>Cada modalidad se cotiza a medida según número de postas, ubicación y servicios incluidos. Solicita una propuesta de inversión y te respondemos en 48 horas.</p>
+        </div>
+        <div class="paquetes-grid">
+            <div class="paquete">
+                <span class="pilar-badge" style="margin-bottom:14px"><i class="fa-solid fa-seedling"></i> Piloto</span>
+                <h3>Posta</h3>
+                <div class="desc">Empieza con un establecimiento de salud</div>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> App PWA instalada en 1 posta</li>
+                    <li><i class="fa-solid fa-check"></i> Kit Bluetooth básico (oxímetro + tensiómetro + termómetro)</li>
+                    <li><i class="fa-solid fa-check"></i> IA clínica 24/7</li>
+                    <li><i class="fa-solid fa-check"></i> Soporte por WhatsApp</li>
+                    <li><i class="fa-solid fa-check"></i> Capacitación al técnico (remota)</li>
+                </ul>
+                <small style="display:block;color:var(--slate-400);font-size:.78rem;margin-bottom:18px">Ideal para validar el flujo completo antes de escalar.</small>
+                <a href="#contacto" class="btn btn-secondary">Solicitar propuesta</a>
+            </div>
+            <div class="paquete featured">
+                <span class="pilar-badge" style="margin-bottom:14px;background:var(--amber);color:white;border-color:var(--amber-dark)"><i class="fa-solid fa-network-wired"></i> Más pedido</span>
+                <h3>Red (RIS)</h3>
+                <div class="desc">Toda una Red Integrada de Salud</div>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Hasta 80 postas conectadas</li>
+                    <li><i class="fa-solid fa-check"></i> Kits BLE completos para cada posta</li>
+                    <li><i class="fa-solid fa-check"></i> IA clínica + médico validador de la RIS</li>
+                    <li><i class="fa-solid fa-check"></i> Dashboard regional en tiempo real</li>
+                    <li><i class="fa-solid fa-check"></i> Capacitación presencial</li>
+                    <li><i class="fa-solid fa-check"></i> Integración con HIS/RENIPRESS</li>
+                </ul>
+                <small style="display:block;color:var(--slate-500);font-size:.78rem;margin-bottom:18px">Mejor relación costo/posta. Recomendado para una RIS completa.</small>
+                <a href="#contacto" class="btn btn-primary">Solicitar propuesta</a>
+            </div>
+            <div class="paquete">
+                <span class="pilar-badge" style="margin-bottom:14px"><i class="fa-solid fa-mountain"></i> Regional</span>
+                <h3>Amazonas</h3>
+                <div class="desc">Las 4 RIS de la región (475 postas)</div>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> 475 establecimientos de salud</li>
+                    <li><i class="fa-solid fa-check"></i> Dashboard regional DIRESA</li>
+                    <li><i class="fa-solid fa-check"></i> IA entrenada con datos locales</li>
+                    <li><i class="fa-solid fa-check"></i> Integración con REFCON nacional</li>
+                    <li><i class="fa-solid fa-check"></i> Equipo dedicado in-situ</li>
+                    <li><i class="fa-solid fa-check"></i> Acuerdo marco con el GORE</li>
+                </ul>
+                <small style="display:block;color:var(--slate-400);font-size:.78rem;margin-bottom:18px">Proyecto de transformación regional. Requiere convenio DIRESA.</small>
+                <a href="#contacto" class="btn btn-secondary">Solicitar propuesta</a>
+            </div>
+        </div>
+        <p class="paquetes-nota">
+            <i class="fa-solid fa-shield-halved"></i> Trabajamos con cotización formal a requerimiento. Cada propuesta incluye <strong>sustento técnico, cronograma y propuesta económica</strong> según modalidad de compra del Estado (acuerdo marco, concurso, encargo, etc.). <a href="#tco" style="color:var(--green-dark);font-weight:600">Mira el ahorro vs. solución tradicional →</a>
+        </p>
+    </div>
+</section>
+
+<!-- ===== 8. CTA FINAL ===== -->
+<section class="cta-final" id="contacto">
+    <div class="wrap">
+        <div>
+            <span class="eyebrow" style="background:rgba(255,255,255,.1);color:var(--amber-light);border-color:rgba(217,119,6,.4)"><i class="fa-solid fa-handshake"></i> Hablemos</span>
+            <h2>Solicita una propuesta de inversión a medida</h2>
+            <p>
+                Cuéntanos tu RIS, tu modalidad de interés y tu modalidad de compra.
+                Te enviamos una <strong>propuesta técnica + económica</strong> en 48 horas,
+                lista para sustentar ante DIRESA o UGP.
+            </p>
+            <div class="legal">
+                <i class="fa-solid fa-shield-halved"></i>
+                Cumple RM 794-2021/MINSA · ROF MINSA · Ley 29733 (datos personales)
+            </div>
+        </div>
+        <form class="cta-form" id="cta-form" onsubmit="return enviarWhatsApp(event)">
+            <h3>Solicita una propuesta de inversión</h3>
+            <p class="small">Te enviamos propuesta técnica + económica a medida en 48 horas.</p>
+            <div class="form-row">
+                <label>Tu nombre</label>
+                <input type="text" id="f-nombre" placeholder="Ej: Dr. Roberto Díaz" required>
+            </div>
+            <div class="form-row">
+                <label>Red Integrada de Salud</label>
+                <select id="f-ris" required>
+                    <option value="">— Seleccionar —</option>
+                    <option>BAGUA</option>
+                    <option>CHACHAPOYAS</option>
+                    <option>CONDORCANQUI</option>
+                    <option>UTCUBAMBA</option>
+                    <option>Toda la región</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Modalidad de interés</label>
+                <select id="f-modalidad" required>
+                    <option value="">— Seleccionar —</option>
+                    <option>Posta (piloto)</option>
+                    <option>Red / RIS</option>
+                    <option>Regional (4 RIS)</option>
+                    <option>Aún no sé / quiero asesoría</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Cargo / Institución</label>
+                <input type="text" id="f-cargo" placeholder="Ej: Director DIRESA / RIS" required>
+            </div>
+            <div class="form-row">
+                <label>WhatsApp</label>
+                <input type="tel" id="f-phone" placeholder="Ej: 941 123 456" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%">
+                <i class="fa-brands fa-whatsapp"></i> Solicitar propuesta
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="wrap">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand">
+                    <div class="lg"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <b>Salud Amazonas</b>
+                </div>
+                <p style="font-size:.9rem;color:var(--slate-400);max-width:340px">
+                    Plataforma de telemedicina offline-first para las postas rurales de Amazonas.
+                    Equipos Bluetooth plug-and-play, IA clínica y sincronización automática.
+                </p>
+            </div>
+            <div>
+                <h5>Producto</h5>
+                <ul>
+                    <li><a href="#solucion">Cómo funciona</a></li>
+                    <li><a href="#equipos">Equipos</a></li>
+                    <li><a href="#demo">Demo</a></li>
+                    <li><a href="#paquetes">Modalidades</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Amazonas</h5>
+                <ul>
+                    <li><a href="#cobertura">Cobertura RIS</a></li>
+                    <li><a href="#problema">El problema</a></li>
+                    <li><a href="#contacto">Agenda demo</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Legal</h5>
+                <ul>
+                    <li><a href="#">RM 794-2021/MINSA</a></li>
+                    <li><a href="#">Ley 29733 (datos)</a></li>
+                    <li><a href="#">Fuentes REUNIS</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Salud Amazonas · Telemedicina rural para la región</span>
+            <span>Datos: REUNIS / MINSA / DIRESA Amazonas</span>
+        </div>
+    </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<!-- ===== SCRIPTS ===== -->
+<script src="ris_data.js"></script>
+<script>
+// ============================================
+// SALUD AMAZONAS — Landing JS
+// ============================================
+
+// --- DRAWER (Google style) ---
+(function() {
+    const hamburger = document.getElementById('hamburger');
+    const drawer = document.getElementById('drawer');
+    const scrim = document.getElementById('scrim');
+    const closeBtn = document.getElementById('drawer-close');
+
+    function open() { drawer.classList.add('open'); scrim.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function close() { drawer.classList.remove('open'); scrim.classList.remove('open'); document.body.style.overflow = ''; }
+
+    if (hamburger) hamburger.addEventListener('click', open);
+    if (scrim) scrim.addEventListener('click', close);
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+})();
+
+// --- SCROLL-SPY NAV ---
+(function() {
+    const sections = document.querySelectorAll('section[id], header[id]');
+    const navLinks = document.querySelectorAll('.nav-links a, .drawer-nav a');
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                const id = e.target.id;
+                navLinks.forEach(l => {
+                    if (l.getAttribute('href') === '#' + id) l.classList.add('active');
+                    else l.classList.remove('active');
+                });
+            }
+        });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(s => obs.observe(s));
+})();
+
+// --- DEMO INTERACTIVA ---
+(function() {
+    const steps = document.querySelectorAll('.demo-step');
+    const content = document.getElementById('demo-content');
+    const prevBtn = document.getElementById('demo-prev');
+    const nextBtn = document.getElementById('demo-next');
+    const currentLbl = document.getElementById('demo-current');
+    const compare = document.getElementById('demo-compare');
+    let current = 0;
+
+    const stepData = [
+        {
+            title: 'Paso 1 — El técnico conecta el oxímetro',
+            html: '<p>Rosa toca "Oxímetro" en la app. Aparece el selector Bluetooth. Elige el equipo. <strong>Aparece solo:</strong> SpO2 89% (bajo), pulso 110.</p><p style="color:var(--terracota);font-weight:600">⚠️ La app marca alerta: SpO2 crítico. Posible complicación respiratoria por envenenamiento.</p>'
+        },
+        {
+            title: 'Paso 2 — La IA sugiere el protocolo',
+            html: '<p>Rosa escribe "mordedura shushupe, adulto, SpO2 89%". La IA responde en segundos:</p><p style="background:var(--green-50);padding:12px;border-radius:10px;border-left:3px solid var(--green)"><b>🤖 IA:</b> Caso grave. <b>Suero antiofídico polivalente</b> IV lo antes posible. Posición semi-Fowler. Oxígeno si SpO2 &lt;90%. Traslado urgente a I-3 con suero administrado en camino.</p>'
+        },
+        {
+            title: 'Paso 3 — El médico valida con 1 clic',
+            html: '<p>La consulta llega al Dr. Pérez, médico de la RIS Condorcanqui (en Chachapoyas). Revisa los signos y el sugerimiento de la IA.</p><p style="background:var(--green-50);padding:12px;border-radius:10px"><b>👨‍⚕️ Dr. Pérez:</b> Confirmo. Aplicar 5 ampollas de suero antiofídico. Activar traslado aéreo. Yo aviso al hospital.</p>'
+        },
+        {
+            title: 'Paso 4 — SOS y activación de traslado',
+            html: '<p>Rosa toca <b>SOS</b>. Se abre WhatsApp con todos los datos formateados: signos vitales, hora, comunidad, tipo de serpiente, protocolo aplicado. Llega al médico coordinador y al REFCON.</p><p style="color:var(--green);font-weight:600">✓ Traslado aéreo activado. Hospital de referencia prepara suero adicional.</p>'
+        },
+        {
+            title: 'Paso 5 — Resultado',
+            html: '<p>El paciente llega al hospital con suero administrado, signos monitorizados y todo el historial sincronizado. <strong>El equipo médico ya sabe qué recibió y cuándo.</strong></p>'
+        }
+    ];
+
+    function render() {
+        steps.forEach((s, i) => {
+            s.classList.remove('active', 'done');
+            if (i < current) s.classList.add('done');
+            if (i === current) s.classList.add('active');
+        });
+        const d = stepData[current];
+        content.innerHTML = '<h4>' + d.title + '</h4>' + d.html;
+        currentLbl.textContent = current + 1;
+        prevBtn.style.opacity = current === 0 ? '.4' : '1';
+        prevBtn.style.pointerEvents = current === 0 ? 'none' : 'auto';
+        nextBtn.innerHTML = current === stepData.length - 1
+            ? 'Comparar tiempos <i class="fa-solid fa-clock"></i>'
+            : 'Siguiente <i class="fa-solid fa-arrow-right"></i>';
+        compare.style.display = current === stepData.length - 1 ? 'grid' : 'none';
+    }
+
+    nextBtn.addEventListener('click', () => {
+        if (current < stepData.length - 1) { current++; render(); }
+    });
+    prevBtn.addEventListener('click', () => {
+        if (current > 0) { current--; render(); }
+    });
+    steps.forEach((s, i) => s.addEventListener('click', () => { current = i; render(); }));
+
+    render();
+})();
+
+// --- COBERTURA RIS (consume ris_data.js) ---
+(function() {
+    const tabsEl = document.getElementById('ris-tabs');
+    const panelEl = document.getElementById('ris-panel');
+    if (!tabsEl || !panelEl || typeof RIS_AMAZONAS === 'undefined') return;
+
+    const risNames = Object.keys(RIS_AMAZONAS);
+    let activeRis = risNames[0];
+
+    function renderTabs() {
+        tabsEl.innerHTML = risNames.map(r =>
+            `<button class="ris-tab ${r === activeRis ? 'active' : ''}" data-ris="${r}">${r}</button>`
+        ).join('');
+        tabsEl.querySelectorAll('.ris-tab').forEach(t => {
+            t.addEventListener('click', () => { activeRis = t.dataset.ris; renderTabs(); renderPanel(); });
+        });
+    }
+
+    function renderPanel() {
+        const data = RIS_AMAZONAS[activeRis];
+        const redes = data.redes || [];
+        const provSet = new Set(redes.map(r => r.prov));
+        let html = `
+            <div class="ris-head">
+                <h3>RIS ${activeRis}</h3>
+                <div class="ris-stats">
+                    <div class="stat"><div class="n">${data.total_ref}</div><div class="l">Referencia</div></div>
+                    <div class="stat"><div class="n">${data.total_vinc}</div><div class="l">Vinculadas</div></div>
+                    <div class="stat"><div class="n">${data.total_ref + data.total_vinc}</div><div class="l">Total EESS</div></div>
+                    <div class="stat"><div class="n">${provSet.size}</div><div class="l">Provincias</div></div>
+                </div>
+            </div>
+            <div class="ris-redes">
+        `;
+        redes.forEach((red, idx) => {
+            html += `
+                <div class="ris-red ${idx === 0 ? 'open' : ''}">
+                    <div class="ris-red-head" onclick="this.parentElement.classList.toggle('open')">
+                        <div>
+                            <b>★ ${red.ref}</b>
+                            <span class="meta"> · ${red.prov} / ${red.dist} · ${red.n + 1} EESS</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="ris-red-body">
+                        <div class="label">Centro de referencia</div>
+                        <div class="ris-chips"><span class="ris-chip ref">${red.ref}</span></div>
+                        <div class="label">Postas vinculadas (${red.vinc.length})</div>
+                        <div class="ris-chips">${red.vinc.map(v => `<span class="ris-chip">${v}</span>`).join('')}</div>
+                    </div>
+                </div>
+            `;
+        });
+        html += '</div>';
+        panelEl.innerHTML = html;
+    }
+
+    renderTabs();
+    renderPanel();
+})();
+
+// --- ANIMACIÓN HERO (vitals flash loop) ---
+(function() {
+    const v1 = document.getElementById('pv1');
+    const v2 = document.getElementById('pv2');
+    if (!v1 || !v2) return;
+    setInterval(() => {
+        v1.classList.remove('flash'); v2.classList.remove('flash');
+        void v1.offsetWidth;
+        v1.classList.add('flash'); v2.classList.add('flash');
+    }, 3500);
+})();
+
+// --- FORMULARIO CTA -> WHATSAPP ---
+function enviarWhatsApp(e) {
+    e.preventDefault();
+    const nombre = document.getElementById('f-nombre').value.trim();
+    const ris = document.getElementById('f-ris').value;
+    const modalidad = document.getElementById('f-modalidad').value;
+    const cargo = document.getElementById('f-cargo').value.trim();
+    const phone = document.getElementById('f-phone').value.replace(/\D/g, '');
+
+    if (!nombre || !ris || !modalidad || !cargo || !phone) return false;
+
+    let msg = `🩺 *Solicitud de propuesta — Salud Amazonas*\n\n`;
+    msg += `*Nombre:* ${nombre}\n`;
+    msg += `*Cargo:* ${cargo}\n`;
+    msg += `*RIS:* ${ris}\n`;
+    msg += `*Modalidad:* ${modalidad}\n`;
+    msg += `*WhatsApp:* ${phone}\n\n`;
+    msg += `_Solicito propuesta técnica y económica para telemedicina._`;
+
+    // Reemplaza con el WhatsApp real del equipo comercial
+    const destino = '51999999999';
+    window.open(`https://wa.me/${destino}?text=${encodeURIComponent(msg)}`, '_blank');
+
+    showToast('✓ Abriendo WhatsApp... Te enviaremos la propuesta en 48h.');
+    return false;
+}
+
+// --- TOAST ---
+function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3500);
+}
+</script>
+</body>
+</html>
